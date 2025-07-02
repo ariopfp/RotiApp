@@ -53,7 +53,7 @@ export const RegisterAgentForm = ({ onSuccess }: { onSuccess?: () => void }) => 
     <View style={styles.container}>
       <Text style={styles.title}>Daftar Sebagai Agen</Text>
       <Text style={styles.subtitle}>
-        Lengkapi detail toko Anda untuk mulai berjualan di GumiSaQ.
+        Lengkapi detail toko Anda untuk mulai berjualan di RotiApp.
       </Text>
       
       <View style={styles.form}>
@@ -144,7 +144,7 @@ const styles = StyleSheet.create({
         color: '#1F2937',
     },
     button: {
-        backgroundColor: '#526346',
+        backgroundColor: '#B69642',
         borderRadius: 99,
         paddingVertical: 16,
         alignItems: 'center',
