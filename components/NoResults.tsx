@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, Image } from "react-native";
+import { Image, Text, View } from "react-native";
 
 import images from "@/constants/images";
 
@@ -7,7 +7,7 @@ const NoResults = () => {
   return (
     <View className="flex items-center my-5">
       <Image
-        source={images.noResult}
+        source={images.logoawall}
         className="w-11/12 h-80"
         resizeMode="contain"
       />

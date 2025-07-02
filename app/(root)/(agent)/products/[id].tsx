@@ -34,7 +34,7 @@ export default function EditProductScreen() {
       setLoading(true);
       const doc = await databases.getDocument(
         config.databaseId!,
-        config.stokCollectionId!,
+        config.rotiCollectionId!,
         productId
       );
 
@@ -44,7 +44,6 @@ export default function EditProductScreen() {
         price: Number(doc.price) || 0,
         description: doc.description || '',
         image: doc.image,
-        type: doc.type || 'Other',
         gallery: doc.gallery || [],
         agentId: doc.agentId || user!.$id,
         status: doc.status || 'active'
@@ -64,7 +63,7 @@ export default function EditProductScreen() {
   if (loading) {
     return (
       <View style={styles.centerContainer}>
-        <ActivityIndicator size="large" color="#526346" />
+        <ActivityIndicator size="large" color="#B69642" />
         <Text style={styles.loadingText}>Memuat Detail Produk...</Text>
       </View>
     );

@@ -1,25 +1,25 @@
 import {
-  View,
-  Text,
-  TouchableOpacity,
-  ScrollView,
-  StyleSheet,
-  Alert,
-  ActivityIndicator,
-  Image,
-} from "react-native";
-import React, { useState, useEffect, useMemo } from "react";
-import { SafeAreaView } from "react-native-safe-area-context";
-import { router, useFocusEffect, useLocalSearchParams } from "expo-router";
-import { Ionicons } from "@expo/vector-icons";
-import { useGlobalContext } from "@/lib/global-provider";
-import { useAppwrite } from "@/lib/useAppwrite";
-import {
   createOrder,
   getCartItems,
   getUserAddresses,
 } from "@/lib/appwrite";
+import { useGlobalContext } from "@/lib/global-provider";
+import { useAppwrite } from "@/lib/useAppwrite";
+import { Ionicons } from "@expo/vector-icons";
+import { router, useFocusEffect, useLocalSearchParams } from "expo-router";
+import React, { useEffect, useMemo, useState } from "react";
+import {
+  ActivityIndicator,
+  Alert,
+  Image,
+  ScrollView,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from "react-native";
 import { Models } from "react-native-appwrite";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 interface MergedCartItem extends Models.Document {
   product: {
@@ -153,7 +153,7 @@ const CheckoutScreen = () => {
                 style={styles.addressBox}
                 onPress={() => router.push({ pathname: "/address-manager", params: { fromCheckout: 'true' } })}
               >
-                <Ionicons name="location-outline" size={32} color="#526346" style={{ marginRight: 16 }} />
+                <Ionicons name="location-outline" size={32} color="#B69642" style={{ marginRight: 16 }} />
                 <View style={{ flex: 1 }}>
                   {selectedAddress ? (
                     <>
@@ -202,7 +202,7 @@ const CheckoutScreen = () => {
                   <Ionicons 
                     name={method.icon as any} 
                     size={24} 
-                    color={selectedPaymentMethod === method.id ? '#526346' : '#666'} 
+                    color={selectedPaymentMethod === method.id ? '#B69642' : '#666'} 
                   />
                   <Text style={[
                     styles.paymentMethodText,
@@ -229,7 +229,7 @@ const CheckoutScreen = () => {
               <View style={styles.divider} />
               <View style={styles.summaryRow}>
                 <Text style={[styles.summaryLabel, { fontFamily: 'Rubik-Bold' }]}>Total</Text>
-                <Text style={[styles.summaryValue, { fontFamily: 'Rubik-Bold', fontSize: 18, color: '#526346' }]}>Rp {grandTotal.toLocaleString('id-ID')}</Text>
+                <Text style={[styles.summaryValue, { fontFamily: 'Rubik-Bold', fontSize: 18, color: '#B69642' }]}>Rp {grandTotal.toLocaleString('id-ID')}</Text>
               </View>
             </View>
         </View>
@@ -306,7 +306,7 @@ const styles = StyleSheet.create({
       borderColor: '#EEE'
     },
     primaryButton: {
-      backgroundColor: '#526346',
+      backgroundColor: '#B69642',
       paddingVertical: 16,
       borderRadius: 99,
       alignItems: 'center',
@@ -333,7 +333,7 @@ const styles = StyleSheet.create({
     },
     paymentMethodSelected: {
       backgroundColor: '#E8F5E9',
-      borderColor: '#526346',
+      borderColor: '#B69642',
     },
     paymentMethodText: {
       marginLeft: 16,
@@ -342,7 +342,7 @@ const styles = StyleSheet.create({
       color: '#666'
     },
     paymentMethodTextSelected: {
-      color: '#526346'
+      color: '#B69642'
     }
   });
 

@@ -23,7 +23,7 @@ const MenuItem = ({ icon, title, onPress, isDestructive = false }: {
 }) => (
   <TouchableOpacity onPress={onPress} style={styles.menuItem}>
     <View style={[styles.menuIcon, isDestructive && styles.menuIconDestructive]}>
-      <Ionicons name={icon} size={22} color={isDestructive ? '#DC2626' : '#526346'} />
+      <Ionicons name={icon} size={22} color={isDestructive ? '#DC2626' : '#B69642'} />
     </View>
     <Text style={[styles.menuTitle, isDestructive && styles.menuTitleDestructive]}>
       {title}
@@ -75,7 +75,6 @@ const ProfileScreen = () => {
   ];
   
   const menuItemsApp = [
-    { title: "Desain Saya", icon: "color-palette-outline", route: "/(desaign)/my-designs" },
     { title: "Tentang Aplikasi", icon: "information-circle-outline", route: "/(about)/about" },
   ];
 

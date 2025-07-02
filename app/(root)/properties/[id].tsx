@@ -6,7 +6,7 @@ import {
   Alert,
   Dimensions,
   Image,
-  Modal, // Import Modal
+  Modal,
   Platform,
   ScrollView,
   StyleSheet,
@@ -26,7 +26,7 @@ const { height: windowHeight, width: windowWidth } = Dimensions.get("window");
 const ProductDetail = () => {
   const { id } = useLocalSearchParams<{ id?: string }>();
   const { user } = useGlobalContext();
-  const [isImageModalVisible, setIsImageModalVisible] = useState(false); // State untuk modal
+  const [isImageModalVisible, setIsImageModalVisible] = useState(false);
 
   const { data: product, loading } = useAppwrite({
     fn: () => getPropertyById({ id: id! }),
@@ -56,25 +56,25 @@ const ProductDetail = () => {
 
   const handleAddToCart = async () => {
     if (!user) {
-        Alert.alert("Perlu Login", "Anda harus masuk untuk menambahkan item ke keranjang.", [
-            { text: "OK", onPress: () => router.push('/sign-in') }
-        ]);
-        return;
+      Alert.alert("Perlu Login", "Anda harus masuk untuk menambahkan item ke keranjang.", [
+        { text: "OK", onPress: () => router.push('/sign-in') }
+      ]);
+      return;
     }
     if (!id) return;
 
     try {
-        await addToCart(user.$id, id);
-        Alert.alert("Sukses!", "Produk berhasil ditambahkan ke keranjang.");
+      await addToCart(user.$id, id);
+      Alert.alert("Sukses!", "Produk berhasil ditambahkan ke keranjang.");
     } catch (error: any) {
-        Alert.alert("Error", error.message || "Gagal menambahkan produk.");
+      Alert.alert("Error", error.message || "Gagal menambahkan produk.");
     }
   };
 
   if (loading) {
     return (
       <View style={styles.centerContainer}>
-        <ActivityIndicator size="large" color="#526346" />
+        <ActivityIndicator size="large" color="#B69642" />
       </View>
     );
   }
@@ -107,7 +107,7 @@ const ProductDetail = () => {
               <TouchableOpacity onPress={() => router.back()} style={styles.iconButton}>
                 <Ionicons name="arrow-back" size={24} color="#191D31" />
               </TouchableOpacity>
-              <TouchableOpacity onPress={handleAddToCart} style={styles.iconButton}>
+              <TouchableOpacity onPress={() => router.push('/(root)/(keranjang)/keranjang')} style={styles.iconButton}>
                 <Ionicons name="cart-outline" size={24} color="#191D31" />
               </TouchableOpacity>
             </View>
@@ -146,6 +146,11 @@ const ProductDetail = () => {
             Rp {product.price.toLocaleString('id-ID')}
           </Text>
         </View>
+        {/* Tombol Tambah ke Keranjang */}
+        <TouchableOpacity style={styles.cartButton} onPress={handleAddToCart}>
+          <Ionicons name="cart-outline" size={20} color="#B69642" />
+        </TouchableOpacity>
+        {/* Tombol Beli Sekarang */}
         <TouchableOpacity style={styles.buyButton} onPress={handleBuyNow}>
           <Text style={styles.buyButtonText}>Beli Sekarang</Text>
         </TouchableOpacity>
@@ -197,7 +202,7 @@ const styles = StyleSheet.create({
     },
     backButton: {
         marginTop: 20,
-        backgroundColor: '#526346',
+        backgroundColor: '#B69642',
         paddingVertical: 12,
         paddingHorizontal: 30,
         borderRadius: 99,
@@ -287,12 +292,27 @@ const styles = StyleSheet.create({
         fontFamily: 'Rubik-ExtraBold',
         color: '#191D31',
     },
-    buyButton: {
-        backgroundColor: '#526346',
+    cartButton: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        backgroundColor: '#F3F4F6',
         paddingVertical: 16,
-        paddingHorizontal: 40,
+        paddingHorizontal: 20,
         borderRadius: 99,
-        marginLeft: 16,
+        marginLeft: 8,
+        marginRight: 8,
+    },
+    cartButtonText: {
+        color: '#B69642',
+        fontSize: 16,
+        fontFamily: 'Rubik-Bold',
+        marginLeft: 6,
+    },
+    buyButton: {
+        backgroundColor: '#B69642',
+        paddingVertical: 16,
+        paddingHorizontal: 32,
+        borderRadius: 99,
         justifyContent: 'center',
         alignItems: 'center',
     },

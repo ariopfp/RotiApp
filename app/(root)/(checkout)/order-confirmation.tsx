@@ -1,8 +1,8 @@
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
-import React from 'react'
-import { SafeAreaView } from 'react-native-safe-area-context'
-import { router, useLocalSearchParams } from 'expo-router'
 import { Ionicons } from '@expo/vector-icons'
+import { router, useLocalSearchParams } from 'expo-router'
+import React from 'react'
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import { SafeAreaView } from 'react-native-safe-area-context'
 
 const OrderConfirmationScreen = () => {
     const { orderId } = useLocalSearchParams<{ orderId?: string }>();
@@ -64,7 +64,7 @@ const styles = StyleSheet.create({
         marginVertical: 8,
     },
     button: {
-        backgroundColor: '#526346',
+        backgroundColor: '#B69642',
         paddingVertical: 16,
         paddingHorizontal: 40,
         borderRadius: 99,

@@ -63,7 +63,7 @@ export default function SignUp() {
           />
 
           <Text style={styles.title}>Buat Akun Baru</Text>
-          <Text style={styles.subtitle}>Mulai perjalanan belanja Anda di GumiSaQ</Text>
+          <Text style={styles.subtitle}>Mulai perjalanan belanja Anda di RotiApp</Text>
 
           {/* Form Inputs */}
           <View style={styles.form}>
@@ -188,7 +188,7 @@ const styles = StyleSheet.create({
     padding: 4,
   },
   button: {
-    backgroundColor: '#526346',
+    backgroundColor: '#B69642',
     borderRadius: 99,
     paddingVertical: 16,
     alignItems: 'center',
@@ -214,6 +214,6 @@ const styles = StyleSheet.create({
   },
   linkText: {
     fontFamily: 'Rubik-Bold',
-    color: '#526346',
+    color: '#B69642',
   },
 });

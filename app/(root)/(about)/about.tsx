@@ -32,13 +32,13 @@ const AboutScreen = () => {
             style={styles.logo}
             resizeMode="contain"
           />
-          <Text style={styles.appName}>GumiSaQ</Text>
+          <Text style={styles.appName}>RotiApp</Text>
           <Text style={styles.versionText}>Versi {appVersion}</Text>
 
           <View style={styles.descriptionContainer}>
             {/* --- KONTEN BARU DARI ANDA --- */}
             <Text style={styles.descriptionText}>
-              GumiSaq adalah aplikasi mobile interaktif yang dirancang sebagai media edukasi budaya Suku Sasak melalui integrasi antara fashion kasual, Augmented Reality (AR), dan platform digital. Aplikasi ini mendukung produk clothing line GumiSaq berupa kaos bergambar budaya lokal, yang dapat dipindai menggunakan fitur QR-Code atau AR Scanner untuk menampilkan informasi budaya secara visual dan interaktif.
+              RotiApp adalah sebuah aplikasi e-commerce yang berfokus menjual roti.
             </Text>
           </View>
         </View>
@@ -46,7 +46,7 @@ const AboutScreen = () => {
 
       <View style={styles.footer}>
         <Text style={styles.footerText}>
-          Copyright © {currentYear} GumiSaQ. All Rights Reserved.
+          Copyright © {currentYear} RotiApp. All Rights Reserved.
         </Text>
       </View>
     </SafeAreaView>

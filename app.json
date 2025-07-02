@@ -1,35 +1,35 @@
 {
   "expo": {
-    "name": "GumisaQ",
-    "slug": "GumisaQ",
+    "name": "RotiApp",
+    "slug": "RotiApp",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/images/logoawall.png",
-    "scheme": "com.saqcloth.gumisaq",
+    "icon": "./assets/images/Roti.png",
+    "scheme": "com.saqcloth.rotiapp",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.saqcloth.gumisaq"
+      "bundleIdentifier": "com.saqcloth.rotiapp"
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/images/logoawall.png",
+        "foregroundImage": "./assets/images/Roti.png",
         "backgroundColor": "#ffffff"
       },
-      "package": "com.saqcloth.gumisaq"
+      "package": "com.saqcloth.rotiapp"
     },
     "web": {
       "bundler": "metro",
       "output": "static",
-      "favicon": "./assets/images/logoawall.png"
+      "favicon": "./assets/images/Roti.png"
     },
     "plugins": [
       "expo-router",
       [
         "expo-splash-screen",
         {
-          "image": "./assets/images/logoawall.png",
+          "image": "./assets/images/Roti.png",
           "imageWidth": 200,
           "resizeMode": "contain",
           "backgroundColor": "#ffffff"
@@ -41,10 +41,7 @@
       "typedRoutes": true
     },
     "extra": {
-      "router": {},
-      "eas": {
-        "projectId": "93b48286-f5e2-4114-90c3-96d54a73e3d1"
-      }
+      "router": {}
     }
   }
 }

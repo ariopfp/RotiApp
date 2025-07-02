@@ -1,17 +1,16 @@
 import { Ionicons } from '@expo/vector-icons';
-import { Picker } from '@react-native-picker/picker';
 import * as ImagePicker from 'expo-image-picker';
 import React, { useState } from 'react';
 import {
-    ActivityIndicator,
-    Alert,
-    Image,
-    ScrollView,
-    StyleSheet,
-    Text,
-    TextInput,
-    TouchableOpacity,
-    View
+  ActivityIndicator,
+  Alert,
+  Image,
+  ScrollView,
+  StyleSheet,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View
 } from 'react-native';
 import { ID } from 'react-native-appwrite';
 import { config, databases, storage } from '../../lib/appwrite';
@@ -24,13 +23,10 @@ interface ProductFormProps {
   mode?: 'create' | 'edit';
 }
 
-const productTypes: Product['type'][] = ["Baju", "Celana", "Tas", "Sofenir", "Other"];
-
 export const ProductForm = ({ onSuccess, initialData, mode = 'create' }: ProductFormProps) => {
   const [name, setName] = useState(initialData?.name || '');
   const [price, setPrice] = useState(initialData?.price?.toString() || '');
   const [description, setDescription] = useState(initialData?.description || '');
-  const [type, setType] = useState<Product['type'] | undefined>(initialData?.type);
   const [mainImage, setMainImage] = useState<string | null>(initialData?.image || null);
   const [galleryImages, setGalleryImages] = useState<string[]>(initialData?.gallery || []);
   const [loading, setLoading] = useState(false);
@@ -83,7 +79,7 @@ export const ProductForm = ({ onSuccess, initialData, mode = 'create' }: Product
   };
 
   const handleSubmit = async () => {
-    if (!name || !price || !description || !type || !mainImage) {
+    if (!name || !price || !description || !mainImage) {
       Alert.alert('Error', 'Semua kolom yang wajib diisi harus dilengkapi.');
       return;
     }
@@ -111,14 +107,14 @@ export const ProductForm = ({ onSuccess, initialData, mode = 'create' }: Product
       const allGalleryIds = [...existingGalleryIds, ...newGalleryDocIds];
 
       const productData = {
-        name, price: parseFloat(price), description, type, image: mainImageUrl,
+        name, price: parseFloat(price), description, image: mainImageUrl,
         gallery: allGalleryIds, agentId: user?.$id, status: 'active'
       };
 
       if (mode === 'edit' && initialData?.$id) {
-        await databases.updateDocument(config.databaseId!, config.stokCollectionId!, initialData.$id, productData);
+        await databases.updateDocument(config.databaseId!, config.rotiCollectionId!, initialData.$id, productData);
       } else {
-        await databases.createDocument(config.databaseId!, config.stokCollectionId!, ID.unique(), productData);
+        await databases.createDocument(config.databaseId!, config.rotiCollectionId!, ID.unique(), productData);
       }
 
       Alert.alert('Sukses', `Produk berhasil ${mode === 'edit' ? 'diperbarui' : 'ditambahkan'}`);
@@ -138,18 +134,6 @@ export const ProductForm = ({ onSuccess, initialData, mode = 'create' }: Product
       <View style={styles.fieldGroup}>
         <Text style={styles.label}>Nama Produk *</Text>
         <TextInput style={styles.input} placeholder="Contoh: Kaos Sasak Modern" value={name} onChangeText={setName} />
-      </View>
-
-      <View style={styles.fieldGroup}>
-          <Text style={styles.label}>Tipe Produk *</Text>
-          <View style={styles.pickerContainer}>
-            <Picker selectedValue={type} onValueChange={(itemValue) => setType(itemValue)} style={styles.picker}>
-                <Picker.Item label="Pilih Tipe..." value={undefined} enabled={false} style={{color: 'grey'}} />
-                {productTypes.map((item, index) => (
-                    <Picker.Item key={index} label={item} value={item} />
-                ))}
-            </Picker>
-          </View>
       </View>
 
       <View style={styles.fieldGroup}>
@@ -238,15 +222,6 @@ const styles = StyleSheet.create({
         height: 120,
         textAlignVertical: 'top',
     },
-    pickerContainer: {
-        backgroundColor: '#F9FAFB',
-        borderWidth: 1,
-        borderColor: '#E5E7EB',
-        borderRadius: 12,
-    },
-    picker: {
-        // Styling untuk picker mungkin terbatas, tetapi container membantu
-    },
     imagePicker: {
         borderWidth: 2,
         borderColor: '#D1D5DB',
@@ -292,7 +267,7 @@ const styles = StyleSheet.create({
         height: 100,
     },
     submitButton: {
-        backgroundColor: '#526346',
+        backgroundColor: '#B69642',
         paddingVertical: 16,
         borderRadius: 99,
         alignItems: 'center',

@@ -19,7 +19,7 @@ const TabIcon = ({
 		return (
 			<View className="flex-1 mt-1 flex flex-col items-center justify-center">
 				<View className={`
-					${focused ? "bg-primary-300" : "bg-[#526346]"} 
+					${focused ? "bg-primary-300" : "bg-[#B69642]"} 
 					rounded-full p-3 shadow-lg elevation-5
 					${focused ? "scale-110" : "scale-100"}
 					border-2 border-white
@@ -35,7 +35,7 @@ const TabIcon = ({
 					className={`${
 						focused
 							? "text-primary-300 font-rubik-medium"
-							: "text-[#526346] font-rubik-medium"
+							: "text-[#B69642] font-rubik-medium"
 					} text-xs w-full text-center mt-1`}
 				>
 					{title}
@@ -48,7 +48,7 @@ const TabIcon = ({
 		<View className="flex-1 mt-3 flex flex-col items-center">
 			<Image
 				source={icon}
-				tintColor={focused ? "#526346" : "#666876"}
+				tintColor={focused ? "#B69642" : "#666876"}
 				resizeMode="contain"
 				className="size-6"
 			/>
@@ -107,43 +107,16 @@ const TabsLayout = () => {
 			/>
 
 			<Tabs.Screen
-				name="shirt-editor"
+				name="purchase_history"
 				options={{
-					title: "Edit",
+					title: "History",
 					headerShown: false,
 					tabBarIcon: ({ focused }) => (
-						<TabIcon icon={icons.editing} focused={focused} title="Edit" />
+						<TabIcon icon={icons.history} focused={focused} title="History" />
 					),
 				}}
 			/>
-
-			<Tabs.Screen
-				name="scanner"
-				options={{
-					title: "Scanner",
-					headerShown: false,
-					tabBarIcon: ({ focused }) => (
-						<TabIcon 
-							icon={icons.scanner} 
-							focused={focused} 
-							title="Scanner" 
-							isScanner={true} 
-						/>
-					),
-				}}
-			/>
-
-			<Tabs.Screen
-				name="artikel"
-				options={{
-					title: "Artikel",
-					headerShown: false,
-					tabBarIcon: ({ focused }) => (
-						<TabIcon icon={icons.news} focused={focused} title="Artikel" />
-					),
-				}}
-			/>
-
+			
 			<Tabs.Screen
 				name="profile"
 				options={{

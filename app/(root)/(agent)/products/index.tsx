@@ -6,18 +6,18 @@ import { Ionicons } from '@expo/vector-icons';
 import { Stack, useRouter } from 'expo-router';
 import React, { useEffect, useState } from 'react';
 import {
-    ActivityIndicator,
-    Alert,
-    Image,
-    Modal,
-    ScrollView,
-    StyleSheet,
-    Text,
-    TouchableOpacity,
-    View
+  ActivityIndicator,
+  Alert,
+  Image,
+  Modal,
+  ScrollView,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View
 } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
 import { Query } from 'react-native-appwrite';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 // Komponen Kartu Produk untuk tampilan yang lebih rapi
 const ProductCard = ({ product, onEdit, onDelete }: { product: Product, onEdit: () => void, onDelete: () => void }) => (
@@ -67,7 +67,7 @@ export default function AgentProducts() {
     try {
       const response = await databases.listDocuments(
         config.databaseId!,
-        config.stokCollectionId!,
+        config.rotiCollectionId!,
         [Query.equal('agentId', user.$id), Query.orderDesc('$createdAt')]
       );
       
@@ -116,7 +116,7 @@ export default function AgentProducts() {
             try {
               await databases.deleteDocument(
                 config.databaseId!,
-                config.stokCollectionId!,
+                config.rotiCollectionId!,
                 product.$id
               );
               Alert.alert('Sukses', 'Produk berhasil dihapus');
@@ -134,7 +134,7 @@ export default function AgentProducts() {
   if (loading) {
     return (
       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-        <ActivityIndicator size="large" color="#526346" />
+        <ActivityIndicator size="large" color="#B69642" />
         <Text style={{ marginTop: 10, fontFamily: 'Rubik-Medium' }}>Memuat Produk...</Text>
       </View>
     );
@@ -213,7 +213,7 @@ const styles = StyleSheet.create({
         paddingBottom: 40,
     },
     addButton: {
-        backgroundColor: '#526346',
+        backgroundColor: '#B69642',
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'center',
@@ -256,7 +256,7 @@ const styles = StyleSheet.create({
     cardPrice: {
         fontSize: 16,
         fontFamily: 'Rubik-Medium',
-        color: '#526346',
+        color: '#B69642',
         marginTop: 4,
     },
     cardDescription: {

@@ -32,6 +32,9 @@ export const config = {
   ordersCollectionId: process.env.EXPO_PUBLIC_APPWRITE_ORDERS_COLLECTION_ID,
   orderItemsCollectionId: process.env.EXPO_PUBLIC_APPWRITE_ORDER_ITEMS_COLLECTION_ID,
 
+  //roti
+  rotiCollectionId: process.env.EXPO_PUBLIC_APPWRITE_ROTI_COLLECTION_ID,
+
   //edit
   shirtColorsCollectionId: process.env.EXPO_PUBLIC_APPWRITE_COLORS_COLLECTION_ID,
   designStickersCollectionId: process.env.EXPO_PUBLIC_APPWRITE_STICKERS_COLLECTION_ID,
@@ -174,7 +177,7 @@ export async function getLatestProperties() {
   try {
     const result = await databases.listDocuments(
       config.databaseId!,
-      config.stokCollectionId!,
+      config.rotiCollectionId!,
       [Query.orderDesc("$createdAt"), Query.limit(5)]
     );
     return result.documents;
@@ -190,7 +193,7 @@ export async function getProperties({ filter, query, limit }: { filter?: string;
     if (filter && filter !== "All") queries.push(Query.equal("type", filter));
     if (query) queries.push(Query.search("name", query));
     if (limit) queries.push(Query.limit(limit));
-    return (await databases.listDocuments(config.databaseId!, config.stokCollectionId!, queries)).documents;
+    return (await databases.listDocuments(config.databaseId!, config.rotiCollectionId!, queries)).documents;
   } catch (error) {
     console.error("Error saat mengambil produk:", error);
     return [];
@@ -199,7 +202,7 @@ export async function getProperties({ filter, query, limit }: { filter?: string;
 
 export async function getPropertyById({ id }: { id: string }) {
   try {
-    const propertyDoc = await databases.getDocument(config.databaseId!, config.stokCollectionId!, id);
+    const propertyDoc = await databases.getDocument(config.databaseId!, config.rotiCollectionId!, id);
     if (!propertyDoc) return null;
 
     if (propertyDoc.agent?.$id) {
@@ -555,7 +558,7 @@ export async function addCustomDesignToCart(
     // 2. Buat produk baru di koleksi 'stok'
     const customProduct = await databases.createDocument(
       config.databaseId!,
-      config.stokCollectionId!, // Menggunakan koleksi stok yang sudah ada
+      config.rotiCollectionId!, // Menggunakan koleksi stok yang sudah ada
       ID.unique(),
       {
         name: design.name || `Desain Kustom #${ID.unique().slice(0, 6)}`,
@@ -784,7 +787,7 @@ export async function getAgentDashboardStats(agentId: string) {
     // 1. Ambil semua produk milik agen
     const productsResponse = await databases.listDocuments(
       config.databaseId!,
-      config.stokCollectionId!,
+      config.rotiCollectionId!,
       [Query.equal('agentId', agentId), Query.limit(5000)] // Ambil semua produk agen
     );
     const agentProducts = productsResponse.documents;

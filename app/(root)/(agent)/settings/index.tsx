@@ -21,7 +21,6 @@ interface AgentProfile {
   phone: string;
   description?: string;
   address?: string;
-  businessHours?: string;
 }
 
 // Komponen input yang bisa digunakan kembali
@@ -54,7 +53,6 @@ export default function AgentSettings() {
     phone: '',
     description: '',
     address: '',
-    businessHours: ''
   });
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
@@ -80,7 +78,6 @@ export default function AgentSettings() {
         phone: doc.phone || '',
         description: doc.description || '',
         address: doc.address || '',
-        businessHours: doc.businessHours || ''
       });
     } catch (error) {
       console.error('Error loading profile:', error);
@@ -107,7 +104,6 @@ export default function AgentSettings() {
           phone: profile.phone.trim(),
           description: profile.description?.trim() || '',
           address: profile.address?.trim() || '',
-          businessHours: profile.businessHours?.trim() || ''
         }
       );
       Alert.alert('Sukses', 'Profil berhasil diperbarui!');
@@ -126,7 +122,7 @@ export default function AgentSettings() {
   if (loading) {
     return (
       <View style={styles.centeredView}>
-        <ActivityIndicator size="large" color="#526346" />
+        <ActivityIndicator size="large" color="#B69642" />
         <Text style={styles.loadingText}>Memuat Pengaturan...</Text>
       </View>
     );
@@ -171,12 +167,6 @@ export default function AgentSettings() {
                 onChangeText={(text) => setProfileValue('address', text)}
                 placeholder="Masukkan alamat lengkap toko"
                 multiline
-            />
-             <FormInput 
-                label="Jam Operasional"
-                value={profile.businessHours}
-                onChangeText={(text) => setProfileValue('businessHours', text)}
-                placeholder="cth: Senin - Sabtu, 09:00 - 17:00"
             />
             
             <TouchableOpacity
@@ -230,7 +220,7 @@ const styles = StyleSheet.create({
     saveButton: {
         flexDirection: 'row',
         gap: 8,
-        backgroundColor: '#526346',
+        backgroundColor: '#B69642',
         paddingVertical: 16,
         borderRadius: 99,
         alignItems: 'center',

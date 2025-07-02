@@ -119,12 +119,6 @@ const OrderCard = ({ order, onUpdateStatus, onReject }: { order: Order, onUpdate
             </TouchableOpacity>
           </View>
         )}
-        {order.status === 'shipped' && (
-          <TouchableOpacity onPress={() => onUpdateStatus(order.$id, 'delivered')} style={[styles.actionButton, styles.completeButton]}>
-             <Ionicons name="checkmark-done-sharp" size={16} color="white" />
-            <Text style={styles.actionButtonText}>Selesaikan Pesanan</Text>
-          </TouchableOpacity>
-        )}
       </View>
     </View>
   );
@@ -178,7 +172,7 @@ export default function AgentOrders() {
                 if (item.productId) {
                     product = await databases.getDocument(
                         config.databaseId!,
-                        config.stokCollectionId!,
+                        config.rotiCollectionId!,
                         item.productId
                     );
                 }
@@ -283,7 +277,7 @@ export default function AgentOrders() {
 
       {loading ? (
         <View style={styles.centeredView}>
-          <ActivityIndicator size="large" color="#526346" />
+          <ActivityIndicator size="large" color="#B69642" />
         </View>
       ) : (
         <ScrollView contentContainerStyle={styles.scrollContainer}>
@@ -320,7 +314,7 @@ const styles = StyleSheet.create({
         borderRadius: 99,
     },
     activeTab: {
-        backgroundColor: '#526346',
+        backgroundColor: '#B69642',
     },
     tabText: {
         fontFamily: 'Rubik-Medium',

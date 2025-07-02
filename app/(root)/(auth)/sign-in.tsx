@@ -91,7 +91,7 @@ export default function SignIn() {
           />
 
           <Text style={styles.title}>Selamat Datang Kembali</Text>
-          <Text style={styles.subtitle}>Masuk untuk melanjutkan ke GumiSaQ</Text>
+          <Text style={styles.subtitle}>Masuk untuk melanjutkan ke RotiApp</Text>
 
           {/* Form Inputs */}
           <View style={styles.form}>
@@ -219,7 +219,7 @@ const styles = StyleSheet.create({
     padding: 4,
   },
   button: {
-    backgroundColor: '#526346',
+    backgroundColor: '#B69642',
     borderRadius: 99,
     paddingVertical: 16,
     alignItems: 'center',
@@ -281,6 +281,6 @@ const styles = StyleSheet.create({
   },
   linkText: {
     fontFamily: 'Rubik-Bold',
-    color: '#526346',
+    color: '#B69642',
   },
 });

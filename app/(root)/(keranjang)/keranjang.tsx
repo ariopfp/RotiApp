@@ -143,7 +143,7 @@ const KeranjangScreen = () => {
       </View>
 
       {loading && (!cartItems || cartItems.length === 0) ? (
-        <View style={styles.fullCenter}><ActivityIndicator size="large" color="#526346" /></View>
+        <View style={styles.fullCenter}><ActivityIndicator size="large" color="#B69642" /></View>
       ) : cartItems && cartItems.length === 0 ? (
         <View style={styles.fullCenter}>
           <Image source={require('@/assets/images/noResult.jpg')} style={styles.emptyImage} resizeMode="contain" />
@@ -198,7 +198,7 @@ const styles = StyleSheet.create({
     cardImage: { width: 90, height: 90, borderRadius: 12 },
     cardDetails: { flex: 1, marginLeft: 16, justifyContent: 'space-between' },
     cardTitle: { fontSize: 16, fontFamily: 'Rubik-Bold', color: '#191D31' },
-    cardPrice: { fontSize: 18, fontFamily: 'Rubik-Bold', color: '#526346', marginTop: 4 },
+    cardPrice: { fontSize: 18, fontFamily: 'Rubik-Bold', color: '#B69642', marginTop: 4 },
     quantityContainer: { flexDirection: 'row', alignItems: 'center', backgroundColor: '#F1F1F1', borderRadius: 99 },
     quantityButton: { padding: 8 },
     quantityText: { fontSize: 16, fontFamily: 'Rubik-Medium', marginHorizontal: 12 },
@@ -208,8 +208,8 @@ const styles = StyleSheet.create({
     footer: { position: 'absolute', bottom: 0, left: 0, right: 0, backgroundColor: 'white', padding: 20, paddingTop: 16, borderTopLeftRadius: 24, borderTopRightRadius: 24, borderTopWidth: 1, borderColor: '#EEE' },
     totalContainer: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' },
     totalLabel: { fontSize: 16, fontFamily: 'Rubik-Medium', color: '#666' },
-    totalPrice: { fontSize: 24, fontFamily: 'Rubik-Bold', color: '#526346' },
-    primaryButton: { backgroundColor: '#526346', paddingVertical: 16, borderRadius: 99, alignItems: 'center' },
+    totalPrice: { fontSize: 24, fontFamily: 'Rubik-Bold', color: '#B69642' },
+    primaryButton: { backgroundColor: '#B69642', paddingVertical: 16, borderRadius: 99, alignItems: 'center' },
     primaryButtonText: { color: 'white', fontSize: 16, fontFamily: 'Rubik-Bold' },
     fullCenter: { flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: '#F8F9FA', padding: 20 },
     emptyImage: { width: 200, height: 200, opacity: 0.8 },
