@@ -1,5 +1,5 @@
 # LINK APK ROTI APP DOWNLOAD
- [`RotiApp`]([https://www.npmjs.com/package/create-expo-app](https://drive.google.com/drive/folders/1xOdl7pASDRnvh5kPXtCPQlMEefJ07QDe?usp=sharing)). 
+ [`RotiApp`](https://www.npmjs.com/package/create-expo-app](https://drive.google.com/drive/folders/1xOdl7pASDRnvh5kPXtCPQlMEefJ07QDe?usp=sharing). 
 
 # Welcome to your Expo app 👋
 
